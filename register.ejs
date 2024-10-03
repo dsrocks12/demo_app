@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center; /* Centering the button */
+            margin-top: 10px; /* Adjusting margin for spacing */
+        }
+
+        button {
+            padding: 15px;
+            line-height: 1; /* Ensures vertical alignment */
+            height: 50px; /* Set a fixed height for the button */
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 16px; /* Adjust font size as needed */
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        .error-message {
+            background-color: #ff6b6b;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center; /* Centering the error message */
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .login-link a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+    <title>Register</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Register</h1>
+
+        <% if (typeof errors !== 'undefined' && errors.length > 0) { %>
+            <div class="error-message">error</div>
+        <% } %>
+
+        <form action="/users/register" method="post">
+            <div>
+                <input type="text" id="name" name="name" placeholder="Name" required>
+            </div>
+            <div>
+                <input type="email" id="email" name="email" placeholder="Email" required>
+            </div>
+            <div>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+            </div>
+            <div>
+                <input type="password" id="password2" name="password2" placeholder="Confirm Password" required>
+            </div>
+
+            <div class="button-container">
+                <button type="submit">Register</button>
+            </div>
+
+            <div class="login-link">
+                <a href="/users/login">Already registered? Login here</a>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
